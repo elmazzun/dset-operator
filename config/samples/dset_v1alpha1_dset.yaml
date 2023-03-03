@@ -1,0 +1,6 @@
+apiVersion: dset.example.com/v1alpha1
+kind: DSet
+metadata:
+  name: dset-sample
+spec:
+  # TODO(user): Add fields here
