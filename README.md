@@ -9,7 +9,10 @@ il progetto.
 
 ```
 https://sdk.operatorframework.io/docs/building-operators/golang/tutorial/#run-the-operator
-$ export DSET_IMAGE="busybox:latest"
+
+Per installare l'Operator nel tuo cluster di test, importa il file deploy-operator.sh:
+$ source deploy-operator.sh
+$ install_operator
 ```
 
 # dset-operator
