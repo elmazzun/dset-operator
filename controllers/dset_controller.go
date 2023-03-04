@@ -65,6 +65,9 @@ type DSetReconciler struct {
 //+kubebuilder:rbac:groups=dset.example.com,resources=dsets,verbs=get;list;watch;create;update;patch;delete
 //+kubebuilder:rbac:groups=dset.example.com,resources=dsets/status,verbs=get;update;patch
 //+kubebuilder:rbac:groups=dset.example.com,resources=dsets/finalizers,verbs=update
+//+kubebuilder:rbac:groups=core,resources=events,verbs=create;patch
+//+kubebuilder:rbac:groups=apps,resources=daemonsets,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=core,resources=pods,verbs=get;list;watch
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
@@ -354,7 +357,7 @@ func (r *DSetReconciler) daemonsetForDSet(dset *dsetv1alpha1.DSet) (*appsv1.Daem
 						{
 							Name:            "dset-controller",
 							Image:           image,
-							ImagePullPolicy: corev1.PullIfNotPresent,
+							ImagePullPolicy: corev1.PullNever,
 							// Ensure restrictive context for the container
 							// More info: https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
 							SecurityContext: &corev1.SecurityContext{

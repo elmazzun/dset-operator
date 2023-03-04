@@ -13,6 +13,10 @@ https://sdk.operatorframework.io/docs/building-operators/golang/tutorial/#run-th
 Per installare l'Operator nel tuo cluster di test, importa il file deploy-operator.sh:
 $ source deploy-operator.sh
 $ install_operator
+
+$ make docker-build
+$ kind load docker-image controller:0.1.0 --name taccitua
+$ k apply -f config/samples/dset_v1alpha1_dset.yam
 ```
 
 # dset-operator
