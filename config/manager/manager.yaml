@@ -36,11 +36,10 @@ spec:
         #   type: RuntimeDefault
       containers:
       - command:
-        # - /manager
-        - ls
+        - /manager
         args:
         - --leader-elect
-        image: quay.io/quay/busybox
+        image: controller:latest
         name: manager
         securityContext:
           allowPrivilegeEscalation: false
