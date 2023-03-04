@@ -1,0 +1,3 @@
+[ ] create Docker image for Operator controller
+[ ] create Docker image for DaemonSet
+[ ] ensure that at most one instance of the CR DSet exists in the cluster

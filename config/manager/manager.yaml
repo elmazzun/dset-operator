@@ -26,6 +26,7 @@ spec:
     spec:
       securityContext:
         runAsNonRoot: true
+        # runAsUser: 1000
         # TODO(user): For common cases that do not require escalating privileges
         # it is recommended to ensure that all your Pods/Containers are restrictive.
         # More info: https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
@@ -35,10 +36,11 @@ spec:
         #   type: RuntimeDefault
       containers:
       - command:
-        - /manager
+        # - /manager
+        - ls
         args:
         - --leader-elect
-        image: controller:latest
+        image: quay.io/quay/busybox
         name: manager
         securityContext:
           allowPrivilegeEscalation: false
