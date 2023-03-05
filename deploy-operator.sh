@@ -7,7 +7,8 @@
 export DSET_IMAGE="quay.io/quay/busybox"
 
 function install_operator {
-    make generate && \
+    kind load docker-image controller:0.1.0 --name taccitua && \
+        make generate && \
         make manifests && \
         make deploy
 }

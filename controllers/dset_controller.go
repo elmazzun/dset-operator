@@ -62,6 +62,7 @@ type DSetReconciler struct {
 
 // The following markers are used to generate the rules permissions (RBAC) on
 // config/rbac using controller-gen when the command <make manifests> is executed.
+
 //+kubebuilder:rbac:groups=dset.example.com,resources=dsets,verbs=get;list;watch;create;update;patch;delete
 //+kubebuilder:rbac:groups=dset.example.com,resources=dsets/status,verbs=get;update;patch
 //+kubebuilder:rbac:groups=dset.example.com,resources=dsets/finalizers,verbs=update

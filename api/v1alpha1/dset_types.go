@@ -25,11 +25,14 @@ import (
 
 // DSetSpec defines the desired state of DSet
 type DSetSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
+	// External Load Balancer IP address
 
-	// Foo is an example field of DSet. Edit dset_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	// +kubebuilder:validation:Required
+	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:validation:MaxLength=15
+
+	// +operator-sdk:csv:customresourcedefinitions:type=spec
+	LoadBalancer string `json:"loadbalancer,omitempty"`
 }
 
 // DSetStatus defines the observed state of DSet
@@ -45,6 +48,7 @@ type DSetStatus struct {
 	// DSet.status.conditions.Message is a human readable message indicating details about the transition.
 	// For further information see: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#typical-status-properties
 	// Conditions store the status conditions of the DSet instances
+
 	// +operator-sdk:csv:customresourcedefinitions:type=status
 	Conditions []metav1.Condition `json:"conditions,omitempty" patchStrategy:"merge" patchMergeKey:"type" protobuf:"bytes,1,rep,name=conditions"`
 }
