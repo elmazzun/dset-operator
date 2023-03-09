@@ -1,5 +1,6 @@
-[ ] create Docker image for Operator controller
-[ ] create Docker image for DaemonSet Pods
+[X] create Docker image for Operator controller
+[X] create Docker image for DaemonSet Pods
+    [ ] add DaemonSet Docker image target to Makefile
 [ ] ensure that at most one instance of the CR DSet exists in the cluster
 [ ] add Load Balancer credentials to CRD, so that the Operator can
     create a Secret from them and DaemonSet Pods could use them in
